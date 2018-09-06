@@ -5,9 +5,9 @@ import Person from './Person/Person.js'
 class App extends Component {
   state = {
     persons: [
-      { id: 1, name: "Gadiza", age: 43 },
-      { id: 2, name: "Manu", age: 44 },
-      { id: 3, name: "Stephanie", age: 45 },
+      { id: 1, name: "Terza", age: 18 },
+      { id: 2, name: "Manu", age: 19 },
+      { id: 3, name: "Stephanie", age: 20 },
     ],
     showPersons: false
   }
@@ -70,7 +70,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <h1> Hi, Im a React App</h1>
+        <h1> Hi, I am a React App</h1>
         <p>This is really working</p>
         <button
         style={style}
