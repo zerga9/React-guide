@@ -13,7 +13,9 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons;
+    const persons = this.state.persons.slice();
+    // don't update state with first changing state. You need to create a copy and change that and then update the state with setState
+    // or with the spread operator; const persons = [...this.state.persons]
     persons.splice(personIndex, 1);
     this.setState({persons: persons})
 
