@@ -13,17 +13,18 @@ class App extends Component {
   }
 
   deletePersonHandler = (personIndex) => {
-    const persons = this.state.persons.slice();
+    const persons = this.state.persons.slice();// with slice you simply copy the full array so you don't mutate the persons itself
+
     // don't update state with first changing state. You need to create a copy and change that and then update the state with setState
     // or with the spread operator; const persons = [...this.state.persons]
-    persons.splice(personIndex, 1);
+    persons.splice(personIndex, 1);//this simly removes one element from the array
     this.setState({persons: persons})
 
   }
 
   nameChangedHandler = (event, id) => {
     const personIndex = this.state.persons.findIndex(p => {
-      return p.id === id
+      return p.id === id //return true or false
     })
 
     const person = {
@@ -44,7 +45,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -58,7 +60,7 @@ class App extends Component {
        <div>
        {this.state.persons.map((person, index) => {
          return <Person
-         key={person.id}
+         key={person.id} //also components need key-property
          click={() => this.deletePersonHandler(index)}
          name={person.name}
          age={person.age}
@@ -66,6 +68,8 @@ class App extends Component {
        })}
      </div>
    );
+
+   style.backgroundColor = 'red'
    }
 
     return (
