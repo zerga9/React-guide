@@ -12,3 +12,5 @@
     width: 450px;
   }
 }
+
+/* classes is a javascript object that simply gives you access to a className which is a string. It will translate your person class into a unique class. */
