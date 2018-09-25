@@ -5,14 +5,31 @@ import Persons from '../components/Persons/Persons'
 
 
 class App extends Component {
-  state = {
-    persons: [
-      { id: 1, name: "Terza", age: 18 },
-      { id: 2, name: "Manu", age: 19 },
-      { id: 3, name: "Stephanie", age: 20 },
-    ],
-    showPersons: false
+  constructor(props) {
+    super(props);
+    console.log('[App.js] Inside Constructor', props);
+    this.state = {
+      persons: [
+        { id: 1, name: "Terza", age: 18 },
+        { id: 2, name: "Manu", age: 19 },
+        { id: 3, name: "Stephanie", age: 20 },
+      ],
+      showPersons: false
+    }
   }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount');
+  }
+
+  // state = {
+  //   persons: [
+  //     { id: 1, name: "Terza", age: 18 },
+  //     { id: 2, name: "Manu", age: 19 },
+  //     { id: 3, name: "Stephanie", age: 20 },
+  //   ],
+  //   showPersons: false
+  // }
 
   deletePersonHandler = (personIndex) => {
     const persons = this.state.persons.slice();// with slice you simply copy the full array so you don't mutate the persons itself
