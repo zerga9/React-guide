@@ -26,6 +26,20 @@ class App extends Component {
     console.log('[App.js] inside componentDidMount()')
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[UPDATE App.js] inside shouldComponentUpdate()', nextProps, nextState);
+    return true;
+    //when you return false it never updates the DOM!!!
+  }
+
+  componentWillUpdate(nextProps, nextState){
+    console.log('[UPDATE App.js] inside componentWIllUpdate()', nextProps, nextState);
+  }
+
+  componentDidUpdate(){
+    console.log('[UPDATE App.js] inside componentDidUpdate')
+  }
+
   // state = {
   //   persons: [
   //     { id: 1, name: "Terza", age: 18 },
@@ -82,6 +96,7 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
+        <button onClick={() => {this.setState({showPersons: true})}}>Show Persons</button>
         <Cockpit showPersons={this.state.showPersons}
         persons={this.state.persons}
         clicked={this.togglePersonsHandler}/>
