@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import classes from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons'
 
 
-class App extends Component {
+class App extends PureComponent {
   constructor(props) {
     super(props);
     console.log('[App.js] Inside Constructor', props);
@@ -25,13 +25,13 @@ class App extends Component {
   componentDidMount(){
     console.log('[App.js] inside componentDidMount()')
   }
-
-  shouldComponentUpdate(nextProps, nextState){
-    console.log('[UPDATE App.js] inside shouldComponentUpdate()', nextProps, nextState);
-    return nextState.persons !== this.state.persons ||
-    nextState.showPersons !== this.state.showPersons;
-    //when you return false it never updates the DOM!!!
-  }
+// Don't need shouldComponentUpdate because you use PureComponent
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.log('[UPDATE App.js] inside shouldComponentUpdate()', nextProps, nextState);
+  //   return nextState.persons !== this.state.persons ||
+  //   nextState.showPersons !== this.state.showPersons;
+  //   //when you return false it never updates the DOM!!!
+  // }
 
   componentWillUpdate(nextProps, nextState){
     console.log('[UPDATE App.js] inside componentWIllUpdate()', nextProps, nextState);
