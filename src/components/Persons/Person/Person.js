@@ -19,6 +19,12 @@ class Person extends Component {
   componentWillReceiveProps(nextProps){
     console.log('[UPDATE Persons.js] inside componentWillReceiveProps', nextProps);
   }
+
+  shouldComponentUpdate(nextProps, nextState){
+    console.log('[UPDATE Persons.js] inside shouldComponentUpdate', nextProps, nextState);
+    return true
+    //when you return false it never updates the DOM!!!
+  }
   render(){
     console.log('[Person.js] inside render()')
 
