@@ -21,10 +21,16 @@ class Person extends Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    console.log('[UPDATE Persons.js] inside shouldComponentUpdate', nextProps, nextState);
-    return true
+    console.log('[UPDATE Persons.js] inside shouldComponentUpdate()', nextProps, nextState);
+    return nextProps.persons !== this.props.persons;
     //when you return false it never updates the DOM!!!
   }
+
+  componentWillUpdate(nextProps, nextState){
+    console.log('[UPDATE Persons.js] inside componentWIllUpdate()', nextProps, nextState);
+  }
+
+
   render(){
     console.log('[Person.js] inside render()')
 
