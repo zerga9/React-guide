@@ -37,6 +37,7 @@ class Persons extends PureComponent {
   render () {
     console.log('[Persons.js] inside render()')
     return this.props.persons.map((person, index) => {
+      // you can return an array of elements, not elements next to each other
       return <Person
       click={() => this.props.clicked( index )}
       name={person.name}

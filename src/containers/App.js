@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react';
 import classes from './App.css';
 import Cockpit from '../components/Cockpit/Cockpit';
 import Persons from '../components/Persons/Persons'
-
+// only use PureComponent if updates are not required!!
 
 class App extends PureComponent {
   constructor(props) {
