@@ -40,6 +40,7 @@ class Persons extends PureComponent {
       // you can return an array of elements, not elements next to each other
       return <Person
       click={() => this.props.clicked( index )}
+      position={index}
       name={person.name}
       age={person.age}
       key={person.id}
