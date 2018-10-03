@@ -8,6 +8,7 @@ class Person extends Component {
   constructor(props) {
     super(props);
     console.log('[Person.js] Inside Constructor', props);
+    this.inputElement = React.createRef();
   }
 
   componentWillMount() {
@@ -18,7 +19,7 @@ class Person extends Component {
     console.log('[Person.js] inside componentDidMount()')
     // this.inputElement.focus();//the element will be focused upon. Here it will be the last element because there is only one element that can be focussed upon at a time
   if (this.props.position === 0){
-    this.inputElement.focus();//now you are refering to the first element of input
+    this.inputElement.current.focus();//now you are refering to the first element of input
   }
   }
   //use reference only for focus or mediaplayback, not for styling!!
@@ -38,7 +39,7 @@ class Person extends Component {
       <p onClick={this.props.click}>I am {this.props.name} and I am {this.props.age} years old!!</p>
       <p>{this.props.children}</p>
       <input
-        ref={(inp) => {this.inputElement = inp}} //property of this class that gives access to this input. Only use reference in statefull components!!
+        ref={this.inputElement} //property of this class that gives access to this input. Only use reference in statefull components!!
         type='text'
         onChange={this.props.changed}
         value={this.props.name}/>
