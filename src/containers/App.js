@@ -16,7 +16,8 @@ class App extends PureComponent {
         { id: 2, name: "Manu", age: 19 },
         { id: 3, name: "Stephanie", age: 20 },
       ],
-      showPersons: false
+      showPersons: false,
+      toggleClicked: 0
     }
   }
 
@@ -78,9 +79,23 @@ class App extends PureComponent {
     this.setState( {persons: persons} );
   }
 
+  // togglePersonsHandler = () => {
+  //   const doesShow = this.state.showPersons;
+  //   this.setState({showPersons: !doesShow,
+  //     toggleClicked: this.state.toggleClicked + 1});
+  // }
+  // this is the wrong way of doing it, because can't call this.state inside set.state
+
+  //rigth way of doing it;
+
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({showPersons: !doesShow});
+    this.setState( ( prevState, props ) => {
+      return {
+        showPersons: !doesShow,
+        toggleClicked: prevState.toggleClicked + 1
+      }
+    });
   }
 
   render() {
