@@ -86,7 +86,7 @@ class App extends PureComponent {
   // }
   // this is the wrong way of doing it, because can't call this.state inside set.state
 
-  //rigth way of doing it;
+  //rigth way to update setState if it is reliant on previous state;
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
